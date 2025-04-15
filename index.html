@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Feedback Analyzer</title>
+  <link rel="stylesheet" href="assets/css/home.css" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <!-- Left Promotional Section -->
+    <div class="promo-section">
+      <div class="promo-content">
+        <h1>Feedback Analyzer</h1>
+        <p>Machine Reading of Customer Feedback</p>
+        <div class="stats">
+          <div><strong>1700+</strong> feedback entries analyzed</div>
+          <div><strong>100+</strong> businesses improved</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="form-wrapper">
+      <div class="form-box">
+        <h2>Create Account</h2>
+        <form class="register-form" action="register.php" method="POST" autocomplete="off">
+          <input type="text" name="name" placeholder="Full Name" required autocomplete="off">
+          <input type="email" name="email" placeholder="Email" required autocomplete="off">
+          <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
+          <select name="user_type" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button type="submit">Create Account</button>
+          <h3>Login As</h3>
+          <div class="login-buttons">
+            <a href="customer_login.php"><button type="button">Customer Login</button></a>
+            <a href="admin_login.php"><button type="button">Admin Login</button></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

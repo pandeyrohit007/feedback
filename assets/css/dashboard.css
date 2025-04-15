@@ -1,0 +1,218 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: 
+    linear-gradient(120deg, rgba(224, 234, 252, 0.9), rgba(207, 222, 243, 0.9), rgba(162, 210, 255, 0.9)),
+    url('../images/customer_login.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: overlay;
+  animation: dashboardFadeIn 1s ease forwards, dashboardGradientFlow 20s ease infinite;
+}
+
+/* Background gradient animation */
+@keyframes dashboardGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade-in animation */
+@keyframes dashboardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #005f73;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navbar .user-info {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.navbar .user-info a {
+  color: #ffd166;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.navbar .user-info a:hover {
+  color: #ffb703;
+}
+
+/* Dashboard Container Styles */
+.dashboard-container {
+  padding: 40px;
+  max-width: 700px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  animation: fadeInContainer 0.8s ease;
+}
+
+/* Pop-in container animation */
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dashboard-container h1 {
+  color: #023047;
+  margin-bottom: 15px;
+  font-size: 2.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Feedback Form Styles */
+.feedback-form textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #fafafa;
+  transition: border 0.3s ease;
+}
+
+.feedback-form textarea:focus {
+  border-color: #219ebc;
+  outline: none;
+}
+
+.feedback-form button {
+  padding: 12px 20px;
+  font-size: 1.1em;
+  background-color: #219ebc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-form button:hover {
+  background-color: #126782;
+  transform: scale(1.05);
+}
+
+/* Response Message Styles */
+#responseMsg {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 15px;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+/* Logout Button Styles */
+.logout-btn {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logout-btn:hover {
+  background-color: #c2185b;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:focus {
+  outline: 3px solid #ffb703;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+  background-color: #b71c1c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 10px;
+}
+
+footer a {
+  color: #005f73;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffb703;
+  text-decoration: underline;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-container {
+    padding: 30px;
+    margin-top: 20px;
+  }
+
+  .dashboard-container h1 {
+    font-size: 2rem;
+  }
+
+  .feedback-form button {
+    width: 100%;
+  }
+}
+
+
+

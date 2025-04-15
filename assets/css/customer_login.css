@@ -1,0 +1,185 @@
+/* Reset and Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body with animated gradient and background image */
+body {
+  height: 100vh;
+  background-image:
+    linear-gradient(120deg, rgba(224, 234, 252, 0.85), rgba(207, 222, 243, 0.85), rgba(162, 210, 255, 0.85)),
+    url('../images/customer_login.jpg'); /* Change path if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  animation: gradientFlow 15s ease infinite, fadeInBody 1s ease forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background gradient animation */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade-in animation */
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glassmorphic Login Container */
+.login-container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: popIn 0.8s ease-in-out;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Floating icon above the form */
+.login-container::before {
+  content: "🔐";
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Form animation */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* Input fields - unified password/email/text */
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.login-container input:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 6px rgba(41, 128, 185, 0.3);
+  outline: none;
+}
+
+/* Button Styling */
+.login-container button {
+  width: 100%;
+  background: linear-gradient(to right, #2980b9, #3498db);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.login-container button:hover {
+  background: linear-gradient(to right, #1f6392, #2c82c9);
+  transform: translateY(-2px);
+}
+
+/* Show password checkbox */
+.show-password {
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.show-password input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+/* Link below form */
+.login-container p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.login-container p a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.login-container p a:hover {
+  color: #1f6392;
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #ffe5e5;
+  color: #c0392b;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 0.95em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 30px 25px;
+    max-width: 90%;
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+}
