@@ -40,27 +40,6 @@ if (!isset($_SESSION['user_name']) || $_SESSION['user_type'] !== 'customer') {
   </main>
 
   <script>
-    async function sendFeedbackToGemini(feedback) {
-      const API_KEY = "AIzaSyD7roQlayvnjQRp88Ej-BsQYGMnk_Ja9xw";
-
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `Please analyze the following customer feedback: "${feedback}". 
-
-Give a very short and concise analysis, and also provide one or two specific suggestions for how a business can make smarter decisions based on this feedback.`
-            }]
-          }]
-        })
-      });
-
-      const data = await response.json();
-      return data?.candidates?.[0]?.content?.parts?.[0]?.text || "No analysis response from Gemini.";
-    }
-
     document.getElementById("feedbackForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -75,14 +54,11 @@ Give a very short and concise analysis, and also provide one or two specific sug
       responseMsg.textContent = "Submitting feedback...";
 
       try {
-        const geminiReply = await sendFeedbackToGemini(feedback);
-
         const saveResponse = await fetch("submit.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            feedback: feedback,
-            analysis: geminiReply
+            feedback: feedback
           })
         });
 
@@ -90,6 +66,7 @@ Give a very short and concise analysis, and also provide one or two specific sug
 
         if (saveResult.success) {
           responseMsg.textContent = "✅ Feedback submitted successfully!";
+          document.getElementById("feedbackInput").value = ""; // Clear the form
         } else {
           responseMsg.textContent = "❌ Failed to submit feedback: " + saveResult.message;
         }

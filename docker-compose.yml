@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # PHP Apache Web Server
+  web:
+    image: php:8.2-apache
+    container_name: feedback-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html/
+      - ./docker/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=feedback_user
+      - DB_PASS=feedback_pass
+      - DB_NAME=feedback_analyzer
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    networks:
+      - feedback-network
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: feedback-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: feedback_analyzer
+      MYSQL_USER: feedback_user
+      MYSQL_PASSWORD: feedback_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - feedback-network
+
+  # phpMyAdmin (optional, for database management)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: feedback-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: feedback_user
+      PMA_PASSWORD: feedback_pass
+    depends_on:
+      - db
+    networks:
+      - feedback-network
+
+volumes:
+  db_data:
+
+networks:
+  feedback-network:
+    driver: bridge

@@ -1,0 +1,45 @@
+# Environment files
+.env
+.env.local
+.env.production
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Setup files (remove after deployment)
+setup.php
+deploy.sh
+
+# Logs
+*.log
+logs/
+error_log
+
+# Temporary files
+tmp/
+temp/
+cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if any)
+node_modules/
+
+# Backup files
+*.bak
+*.backup

@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $insert_sql = "INSERT INTO customers (name, email, password) VALUES (?, ?, ?)";
     } elseif ($user_type === 'admin') {
         $check_sql = "SELECT id FROM admins WHERE email = ?";
-        $insert_sql = "INSERT INTO admins (name, email, password, created_at) VALUES (?, ?, ?, NOW())";
+        $insert_sql = "INSERT INTO admins (name, email, password) VALUES (?, ?, ?)";
     } else {
         die("Invalid user type.");
     }

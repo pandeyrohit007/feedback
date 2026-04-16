@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $_SESSION['user_name'] = $name;         // Store the user name in the session
           $_SESSION['user_type'] = 'customer';    // Store user type in the session
           $_SESSION['user_email'] = $email;       // ✅ Needed for feedback submission
-      
+
           // Redirect to customer dashboard
           header("Location: customer_dashboard.php");
           exit();

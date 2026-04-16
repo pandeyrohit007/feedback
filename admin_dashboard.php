@@ -19,7 +19,7 @@ $query = "SELECT
             c.email AS user_email 
           FROM feedback f 
           JOIN customers c ON f.customer_id = c.id 
-          ORDER BY f.submitted_at ASC";
+          ORDER BY f.submitted_at DESC";
 
 $result = $conn->query($query);
 

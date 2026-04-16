@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback Analyzer - Live Demo</title>
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <style>
+    .demo-notice {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+      padding: 15px;
+      margin: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .demo-notice h3 {
+      margin-top: 0;
+      color: #856404;
+    }
+    .features-list {
+      background: #f8f9fa;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 5px;
+    }
+    .features-list h3 {
+      color: #495057;
+    }
+    .features-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .features-list li {
+      padding: 5px 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .tech-stack {
+      background: #e9ecef;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <!-- Demo Notice -->
+    <div class="demo-notice">
+      <h3>🚀 Live Demo - Feedback Analyzer</h3>
+      <p><strong>Note:</strong> This is a frontend demo. Full functionality requires PHP + MySQL backend.</p>
+      <p>🔗 <strong>Full Source Code:</strong> <a href="https://github.com/pandeyrohit007/feedback" target="_blank">GitHub Repository</a></p>
+    </div>
+
+    <!-- Left Promotional Section -->
+    <div class="promo-section">
+      <div class="promo-content">
+        <h1>Feedback Analyzer</h1>
+        <p>Machine Reading of Customer Feedback</p>
+        <div class="stats">
+          <div><strong>1700+</strong> feedback entries analyzed</div>
+          <div><strong>100+</strong> businesses improved</div>
+        </div>
+
+        <div class="features-list">
+          <h3>✨ Key Features</h3>
+          <ul>
+            <li>✅ User registration & authentication</li>
+            <li>✅ Customer feedback submission</li>
+            <li>✅ AI-powered feedback analysis (Gemini API)</li>
+            <li>✅ Admin dashboard with data visualization</li>
+            <li>✅ CSV export functionality</li>
+            <li>✅ Secure password hashing</li>
+            <li>✅ Responsive design</li>
+          </ul>
+        </div>
+
+        <div class="tech-stack">
+          <h3>🛠️ Technology Stack</h3>
+          <ul>
+            <li><strong>Backend:</strong> PHP 8.2, MySQL</li>
+            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+            <li><strong>AI:</strong> Google Gemini API</li>
+            <li><strong>Deployment:</strong> Docker, Railway, Render</li>
+            <li><strong>Security:</strong> bcrypt, prepared statements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="form-wrapper">
+      <div class="form-box">
+        <h2>Create Account</h2>
+        <form class="register-form" onsubmit="showDemoMessage(event)">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <select name="user_type" required>
+            <option value="" disabled selected>Select User Type</option>
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button type="submit">Create Account (Demo)</button>
+        </form>
+
+        <h3>Login As</h3>
+        <div class="login-buttons">
+          <button onclick="showDemoMessage()" class="demo-btn">Customer Login</button>
+          <button onclick="showDemoMessage()" class="demo-btn">Admin Login</button>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; background: #d1ecf1; border: 1px solid #bee5eb; border-radius: 5px;">
+          <h4>🎯 Project Links</h4>
+          <p><a href="https://github.com/pandeyrohit007/feedback" target="_blank">📁 View Source Code</a></p>
+          <p><a href="https://github.com/pandeyrohit007/feedback/blob/main/README.md" target="_blank">📖 Read Documentation</a></p>
+          <p><strong>🚀 To see it fully working:</strong> Deploy with Docker or Railway</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showDemoMessage(event) {
+      if (event) event.preventDefault();
+      alert('🎭 This is a frontend demo!\n\nTo see the full PHP application working:\n\n1. Deploy to Railway, Render, or Docker\n2. Set up MySQL database\n3. Add Gemini API key\n\nCheck the README for deployment instructions!\n\n🔗 https://github.com/pandeyrohit007/feedback');
+    }
+  </script>
+</body>
+</html>
